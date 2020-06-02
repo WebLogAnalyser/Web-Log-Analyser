@@ -7,3 +7,4 @@ Magic test
 
 Liu test
 
+lu test
