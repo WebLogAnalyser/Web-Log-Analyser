@@ -8,3 +8,10 @@ Magic test
 Liu test
 
 lu test
+
+
+
+------
+
+update：上传目前所有软件配置至仓库的根文件夹CentOS7中
+
