@@ -1,0 +1,13 @@
+
+<script>
+function submitFun(act)
+{
+rxss.action.value = act;
+rxss.submit();
+}
+</script>
+<form name="rxss" action="/rxss" method="GET">
+		<input type="text" id="query" name="query" value="Enter query here...">
+		<input id="button" type="button" value="Search" onclick="submitFun(0)">
+		<input id="button" type="button" value="XSS-Search" onclick="submitFun(1)">
+</form>

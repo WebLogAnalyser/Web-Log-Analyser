@@ -1,0 +1,29 @@
+# Software source
+Spark:
+	version: spark-2.4.6-bin-without-hadoop-scala-2.12
+	source:	https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.6/spark-2.4.6-bin-without-hadoop-scala-2.12.tgz
+
+Java8:
+	version: jdk-8u161-linux-x64
+	source: https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+	
+Python3:
+	version: Python-3.7.0
+	source:	https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+
+Kafka:
+	version: kafka_2.12-2.5.0
+	source:	https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.5.0/kafka_2.12-2.5.0.tgz
+
+Hadoop:
+	version: hadoop-3.1.3
+	source:	https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
+
+Zookeeper:
+	version: zookeeper-3.6.1-bin
+	source:	https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.6.1/apache-zookeeper-3.6.1-bin.tar.gz
+
+Flume:
+	version: flume-1.6.0-bin
+	source:	https://mirrors.tuna.tsinghua.edu.cn/apache/flume/1.6.0/apache-flume-1.6.0-bin.tar.gz
+	

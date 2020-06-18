@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>fuckXSS</title>
+<style type='text/css'>
+div {
+    display: block;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+.message-container {
+    padding: 10px;
+    background-color: #F9F9F9;
+    border: 1px solid #C4C4C4;
+    border-radius: 5px 5px;
+    width: 400px;
+    font-size: 12px;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.shim {
+    position: absolute;
+    margin-left: -20px;
+    top: 15px;
+    height: 21px;
+    width: 10px;
+}
+b {
+    font-weight: bold;
+}
+blockquote {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1 style='text-align: center'> 反射性XSS </h1>
+    <div style='text-align: center;
+  margin: 0 auto;'>
+  
+{% if query %}
+	<form action="/rxss" method="GET">
+	  <input type="text" id="query" name="query" value="{{query}}">
+	  	<br>
+		anti-XSS<input type="checkbox" name="anti-XSS" value="1"/>
+		<br>
+	  <input id="button" type="submit" value="Search">
+	</form>
+
+    <br>Your Search for {{ query|safe }}<br>
+	Unfortunately it has gone!<br>
+
+
+{% else %}
+	<form action="/rxss" method="GET">
+	  <input type="text" id="query" name="query" value="Enter query here...">
+	  	<br>
+		anti-XSS<input type="checkbox" name="anti-XSS" value="1"/>
+		<br>
+	  <input id="button" type="submit" value="Search">
+	</form>
+{% endif %}
+
+
+	</div>
+  
+
+<h1 style='text-align: center'> 持久性XSS </h1>
+    <div style='text-align: center;
+  margin: 0 auto;'>
+	
+
+	<form name="pxss" action="pxss" method="POST">
+	  <input id="qcomment" name="qcomment" value="Enter comment here..." onfocus="this.value=&#39;&#39;">
+	  <br>
+	anti-XSS<input type="checkbox" name="anti-XSS" value="1"/>
+	<br>
+	  <input id="button" type="submit" value="Comment">
+	</form>
+
+	</div>  
+
+<br><br>
+<div id="post-container" align="center">
+<table class="message"> 
+
+<tbody><tr> <td valign="top" class="message-container"> 
+<div class="shim"></div>
+<b>You</b><br>
+<span class="date">Sun Apr 12 2020 16:44:32 GMT+0800 (中国标准时间)</span>
+<blockquote>Welcome!<br><br>This is your <i>personal</i> stream. You can post anything you want here, especially <span style="color: #f00ba7">madness</span>.</blockquote>
+</td></tr>
+
+{% if comment %}
+{% for comment_item in comment %}
+<tr> <td valign="top" class="message-container"> 
+<div class="shim"></div>
+<b>You</b><br>
+
+<blockquote><p>{{comment_item | safe}}</p></blockquote>
+</td></tr>
+{% endfor %}
+{% endif %}
+
+</tbody>
+</table>
+</div>
+
+
+  
+
+</body></html>
